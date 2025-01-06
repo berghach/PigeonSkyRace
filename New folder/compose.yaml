@@ -1,0 +1,25 @@
+name: PigeonsVoyageursApplication
+
+services:
+  pigeons-voyageurs-application:
+    build:
+      context: ./src
+    depends_on:
+      - pigeons-voyageurs-application-db
+    ports:
+      - "8080:8080"
+  pigeons-voyageurs-application-db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_DB: pigeon_sky_race
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: post2001
