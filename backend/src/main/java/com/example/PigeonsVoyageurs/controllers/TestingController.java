@@ -3,6 +3,8 @@ package com.example.PigeonsVoyageurs.controllers;
 import com.example.PigeonsVoyageurs.dtos.response.UserResponseDTO;
 import com.example.PigeonsVoyageurs.entities.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,7 @@ public class TestingController {
     }
 
     @GetMapping("/secure")
-    public User getAuthenticatedUser(Authentication authentication){
-        return (User) authentication.getPrincipal();
+    public ResponseEntity<Object> getAuthenticatedUser(Authentication authentication){
+        return ResponseEntity.ok(authentication.getPrincipal());
     }
 }

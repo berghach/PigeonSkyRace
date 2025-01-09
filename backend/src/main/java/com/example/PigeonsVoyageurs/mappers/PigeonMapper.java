@@ -11,16 +11,18 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface PigeonMapper {
-//    @Mapping(source = "sexe", target = "sexe")
-//    @Mapping(source = "color", target = "color")
-//    @Mapping(source = "age", target = "age")
-//    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "sexe", target = "sexe")
+    @Mapping(source = "color", target = "color")
+    @Mapping(source = "age", target = "age")
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "pigeonRing", ignore = true)
+    @Mapping(source = "userId", target = "user.id")
     Pigeon toEntity(PigeonRequestDTO pigeonRequestDTO);
-//    @Mapping(source = "id", target = "id")
+    @Mapping(source = "id", target = "id")
 //    @Mapping(source = "pigeonRing", target = "pigeonRing")
-//    @Mapping(source = "sexe", target = "sexe")
-//    @Mapping(source = "color", target = "color")
-//    @Mapping(source = "age", target = "age")
-//    @Mapping(source = "user.username", target = "owner")
+    @Mapping(source = "sexe", target = "sexe")
+    @Mapping(source = "color", target = "color")
+    @Mapping(source = "age", target = "age")
+    @Mapping(source = "user.username", target = "owner")
     PigeonResponseDTO toResponseDTO(Pigeon pigeon);
 }

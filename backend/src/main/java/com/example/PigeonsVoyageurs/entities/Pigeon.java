@@ -19,8 +19,8 @@ public class Pigeon {
     @Column(name ="id")
     private UUID id;
 
-    @Column(name = "pigeon_ring")
-    private String pigeonRing;
+//    @Column(name = "pigeon_ring")
+//    private String pigeonRing;
 
     @Column(name = "sexe")
     @Enumerated(EnumType.STRING)
@@ -47,13 +47,13 @@ public class Pigeon {
         this.id = id;
     }
 
-    public String getPigeonRing() {
-        return pigeonRing;
-    }
-
-    public void setPigeonRing(String pigeonRing) {
-        this.pigeonRing = pigeonRing;
-    }
+//    public String getPigeonRing() {
+//        return pigeonRing;
+//    }
+//
+//    public void setPigeonRing(String pigeonRing) {
+//        this.pigeonRing = pigeonRing;
+//    }
 
     public Sexe getSexe() {
         return sexe;
@@ -95,18 +95,18 @@ public class Pigeon {
         this.rankings = rankings;
     }
 
-    @PrePersist
-    private void setGeneratedPigeonRing(){
-        StringBuilder str = new StringBuilder();
-        if (this.sexe.equals(Sexe.MALE)){
-            str.append("M");
-        }else {
-            str.append("F");
-        }
-        str.append(this.user.getLoftName().substring(0, 1).toUpperCase())
-                .append("-")
-                .append(this.age);
-
-        this.pigeonRing = String.valueOf(str);
-    }
+//    @PrePersist
+//    private void setGeneratedPigeonRing(){
+//        StringBuilder str = new StringBuilder();
+//        if (this.sexe.equals(Sexe.MALE)){
+//            str.append("M");
+//        }else {
+//            str.append("F");
+//        }
+//        str.append(this.user.getLoftName().substring(0, 1).toUpperCase())
+//                .append("-")
+//                .append(this.age);
+//
+//        this.pigeonRing = String.valueOf(str);
+//    }
 }
